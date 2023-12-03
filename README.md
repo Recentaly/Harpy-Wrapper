@@ -100,9 +100,9 @@ messages = [
 ]
 ```
 
-``System:`` A 'System' message to influence the responses by the AI, etc.
-``assistant:`` The AI's replies.
-``user:`` The user's messages
+``System:`` A 'System' message to influence the responses by the AI, etc. <br>
+``assistant:`` The AI's replies. <br>
+``user:`` The user's messages <br>
 
 1. ``temperature:`` (int) -> Number between __0__ and __2__
 
