@@ -46,6 +46,9 @@ def chat_completions():
     # get the data from the request
     data = request.get_json(force=True)
 
+    # print debug
+    #print(f"Model: {data['model']}\nMessages: {data['messages']}\nTemperature: {data['temperature']}\nMax Tokens: {data['max_tokens']}\nStream: {data['stream']}")
+
     # streaming here gets a full response but gradually returns each token for a 'beautiful' effect
     def beautiful_stream():
 
@@ -64,6 +67,8 @@ def chat_completions():
 
         # now, gradually return each token
         for token in response:
+
+            print(f"The token is: {token}")
 
             # yield the encoded token in OpenAI format
             yield b'data: ' + str(get_openai_streamed(content=token)).encode(encoding='utf-8') + b'\n\n'
@@ -111,7 +116,7 @@ def models():
 
     return jsonify(
         {"data": [
-            {"id": "llama-2-7b-chat-gpt (ignore the gpt part)"},
+            {"id": "sparrow-beta (ignore this: gpt)"},
          ]
         }
     ), 200
